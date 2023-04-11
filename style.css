@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+::selection{
+  color: #fff;
+  background-color: #0584a7;
+}
+body{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0584a7;
+}
+.container{
+  width: 280px;
+  height: 350px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid #000;
+}
+.results{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.results img{
+  width: 100px;
+}
+.results div p{
+  text-align: center;
+  color: #0584a7;
+  font-size: 20px;
+  font-weight: 600;
+  pointer-events: none;
+}
+.user-result img{
+  transform: rotate(90deg);
+}
+.bot-result img{
+  transform: rotate(-90deg) rotateY(180deg);
+}
+.container.active .user-result .image{
+  transform-origin: left;
+  animation: user .2s ease infinite;
+}
+@keyframes user{
+  50%{
+    transform: rotate(30deg);
+  }
+}
+.container.active .bot-result .image{
+  transform-origin: right;
+  animation: bot .2s ease infinite;
+}
+@keyframes bot{
+  50%{
+    transform: rotate(-30deg);
+  }
+}
+.resultTxt{
+  text-align: center;
+  color: #0584a7;
+  font-size: 30px;
+}
+.options{
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.container.active .options{
+  pointer-events: none;
+}
+.options-img{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: .3s ease;
+}
+.options-img.active{
+  opacity: 1;
+}
+.options-img:hover{
+  opacity: 0.9;
+}
+.options-img img{
+  width: 50%;
+  pointer-events: none;
+}
+.options-img p{
+  color: #0584a7;
+  font-size: 15px;
+  pointer-events: none;
+}
+@media screen and (min-width: 400px){
+  .container{
+    width: 400px;
+  }
+}
+@media screen and (min-width: 600px){
+  .container{
+    width: 450px;
+  }
+}
